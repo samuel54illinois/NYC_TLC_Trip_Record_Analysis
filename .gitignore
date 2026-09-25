@@ -219,3 +219,6 @@ __marimo__/
 
 # Macbook OS
 .DS_Store
+
+# File System
+/data
