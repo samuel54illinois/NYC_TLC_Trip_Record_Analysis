@@ -5,8 +5,10 @@ import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
+# Load in the information from the env file
 load_dotenv()
 
+# Create the engine and then copy in everything
 engine = create_engine(
     f"postgresql+psycopg://"
     f"{os.getenv('DB_USER')}:"
@@ -16,8 +18,10 @@ engine = create_engine(
     f"{os.getenv('DB_NAME')}"
 )
 
+# Read in the files
 zones = pd.read_csv("../data/raw/taxi_zone_lookup.csv")
 
+# Rename the columns
 zones = zones.rename(columns={
     "LocationID": "location_id",
     "Borough": "borough",
@@ -25,10 +29,11 @@ zones = zones.rename(columns={
     "service_zone": "service_zone"
 })
 
+# Load it into the data table
 zones.to_sql(
     "taxi_zones",
     engine,
-    if_exists="append",
+    if_exists="append", # this is important because we have manually created the schema
     index=False
 )
 
