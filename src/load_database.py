@@ -19,7 +19,7 @@ engine = create_engine(
 )
 
 # Read in the files
-zones = pd.read_csv("../data/raw/taxi_zone_lookup.csv")
+zones = pd.read_csv("data/raw/taxi_zone_lookup.csv")
 
 # Rename the columns
 zones = zones.rename(columns={
@@ -30,15 +30,15 @@ zones = zones.rename(columns={
 })
 
 # Load it into the data table
-zones.to_sql(
-    "taxi_zones",
-    engine,
-    if_exists="append", # this is important because we have manually created the schema
-    index=False
-)
+# zones.to_sql(
+#     "taxi_zones",
+#     engine,
+#     if_exists="append", # this is important because we have manually created the schema
+#     index=False
+# )
 
-trips = pd.read_parquet(
-    "../data/processed/yellow_tripdata_2026-01_cleaned.csv"
+trips = pd.read_csv(
+    "data/processed/yellow_tripdata_2026-01_cleaned.csv"
 )
 
 trips = trips.rename(columns={
