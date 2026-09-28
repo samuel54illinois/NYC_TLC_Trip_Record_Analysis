@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS yellow_trips (
     passenger_count SMALLINT,
     trip_distance DOUBLE PRECISION NOT NULL,
     ratecode_id SMALLINT,
-    store_and_fwd_flag CHAR(1),
+    store_and_fwd_flag BOOLEAN,
     pickup_location_id INTEGER NOT NULL,
     dropoff_location_id INTEGER NOT NULL,
     payment_type SMALLINT NOT NULL,

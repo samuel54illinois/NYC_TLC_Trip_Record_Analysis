@@ -51,11 +51,20 @@ trips = trips.rename(columns={
     "Airport_fee": "airport_fee"
 })
 
+trips['pickup_datetime'] = pd.to_datetime(trips['pickup_datetime'])
+trips['dropoff_datetime'] = pd.to_datetime(trips['dropoff_datetime'])
+trips["store_and_fwd_flag"] = (
+    trips["store_and_fwd_flag"]
+    .map({"Y": True, "N": False})
+)
+
+print(trips.dtypes)
+
 trips.to_sql(
     "yellow_trips",
     engine,
     if_exists="append",
     index=False,
-    chunksize=10000,
+    chunksize=1000,
     method="multi"
 )
