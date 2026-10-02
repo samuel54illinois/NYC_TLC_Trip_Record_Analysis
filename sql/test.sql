@@ -22,5 +22,7 @@
 -- SELECT TOP 1000
 -- FROM [dbo].[yellow_trips];
 
-SELECT TOP 100
+SELECT COUNT(*) AS row_count
 FROM [dbo].[yellow_trips];
+
+-- TRUNCATE TABLE dbo.yellow_trips;
