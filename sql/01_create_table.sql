@@ -1,3 +1,5 @@
+DROP TABLE [dbo].[yellow_trips];
+
 CREATE TABLE dbo.yellow_trips(
     -- Creating a primary key for this table
     trip_id BIGINT IDENTITY(1,1) PRIMARY KEY,
@@ -9,11 +11,11 @@ CREATE TABLE dbo.yellow_trips(
     passenger_count TINYINT NULL,
     trip_distance DECIMAL(10,2) NOT NULL,
     ratecode_id SMALLINT NULL,
-    store_and_fwd_flag CHAR(1) NULL,
+    store_and_fwd_flag BIT NULL,
 
     pickup_location_id SMALLINT NOT NULL,
     dropoff_location_id SMALLINT NOT NULL,
-    patyment_type TINYINT NOT NULL,
+    payment_type TINYINT NOT NULL,
 
     fare_amount DECIMAL(10,2) NOT NULL,
     extra DECIMAL(10,2) NOT NULL,
