@@ -22,7 +22,9 @@
 -- SELECT TOP 1000
 -- FROM [dbo].[yellow_trips];
 
-SELECT COUNT(*) AS row_count
-FROM [dbo].[yellow_trips];
+-- SELECT COUNT(*) AS row_count
+-- FROM [dbo].[yellow_trips];
 
 -- TRUNCATE TABLE dbo.yellow_trips;
+
+-- SELECT 1 AS connection_test;
