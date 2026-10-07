@@ -1,3 +1,15 @@
+TRUNCATE TABLE dbo.nyc_weather_hourly;
+
+SELECT COUNT(*) FROM dbo.nyc_weather_hourly;
+
+SELECT
+    COUNT(*) AS row_count,
+    MIN(TRY_CONVERT(DATETIME2(0), date)) AS first_hour,
+    MAX(TRY_CONVERT(DATETIME2(0), date)) AS last_hour
+FROM dbo.nyc_weather_hourly;
+
+DROP TABLE dbo.nyc_weather_hourly_clean;
+
 CREATE TABLE dbo.nyc_weather_hourly_clean (
     weather_hour DATETIME2(0) PRIMARY KEY,
     temperature_2m DECIMAL(10,4) NOT NULL,
