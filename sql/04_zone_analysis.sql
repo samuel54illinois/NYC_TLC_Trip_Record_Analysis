@@ -1,27 +1,27 @@
 -- Create the clean table
-CREATE TABLE dbo.taxi_zone_lookup_clean (
-    location_id SMALLINT PRIMARY KEY,
-    borough NVARCHAR(50) NOT NULL,
-    zone NVARCHAR(100) NOT NULL,
-    service_zone NVARCHAR(50) NOT NULL
-);
+-- CREATE TABLE dbo.taxi_zone_lookup_clean (
+--     location_id SMALLINT PRIMARY KEY,
+--     borough NVARCHAR(50) NOT NULL,
+--     zone NVARCHAR(100) NOT NULL,
+--     service_zone NVARCHAR(50) NOT NULL
+-- );
 
-INSERT INTO dbo.taxi_zone_lookup_clean (
-    location_id,
-    borough,
-    zone,
-    service_zone    
-)
+-- INSERT INTO dbo.taxi_zone_lookup_clean (
+--     location_id,
+--     borough,
+--     zone,
+--     service_zone    
+-- )
 
 -- Import the data
-SELECT
-    TRY_CONVERT(SMALLINT, location_id) AS location_id,
-    TRY_CONVERT(NVARCHAR(50), borough) AS borough,
-    TRY_CONVERT(NVARCHAR(100), zone) AS zone,
-    TRY_CONVERT(NVARCHAR(50), service_zone) AS service_zone
-FROM [dbo].[taxi_zone_lookup];
+-- SELECT
+--     TRY_CONVERT(SMALLINT, location_id) AS location_id,
+--     TRY_CONVERT(NVARCHAR(50), borough) AS borough,
+--     TRY_CONVERT(NVARCHAR(100), zone) AS zone,
+--     TRY_CONVERT(NVARCHAR(50), service_zone) AS service_zone
+-- FROM [dbo].[taxi_zone_lookup];
 
-SELECT * FROM dbo.taxi_zone_lookup_clean;
+-- SELECT * FROM dbo.taxi_zone_lookup_clean;
 
 -- Which named pickup zones have the highest trip demand?
 SELECT TOP(10)
